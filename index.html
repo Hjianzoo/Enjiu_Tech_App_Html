@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="css/index.css" rel="stylesheet">
+    <!-- <link href="https://unpkg.com/purecss@1.0.0/build/base-min.css" rel="stylesheet"> -->
+    <script src="./js/zepto.js"></script>
+    <script src="./js/index.js"></script>
+    <title></title>
+</head>
+
+<body>
+    <div class="header">
+        <i class="iconfont link-icon hide">&#xe63c;</i>
+        <i class="iconfont no-link-icon">&#xe658;</i>
+        <span>待机中</span>
+        <i class="iconfont icon-shezhi"></i>
+    </div>
+    <div class="section">
+        <ul>
+            <li class="active" data-index="0">基本</li>
+            <li data-index="1">设置</li>
+            <li data-index="2">告警</li>
+            <li data-index="3">关于</li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="basic part show">
+            <table class="basicTable">
+                <tr>
+                    <th colspan="4">电网电压</th>
+                </tr>
+                <tr class="GVRMS">
+                    <td>有效值(V)</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr class="GVTHDU">
+                    <td>THDU(%)</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr class="GVHZ">
+                    <td>频 率(Hz)</td>
+                    <td></td>
+                    <td>0</td>
+                    <td></td>
+                </tr>
+                <tr class="GVPS">
+                    <td>相序</td>
+                    <td></td>
+                    <td>0</td>
+                    <td></td>
+                </tr>
+            </table>
+            <table class="basicTable">
+                <tr>
+                    <th colspan="4">电网电流</th>
+                </tr>
+                <tr class="GCRMS">
+                    <td>有效值(A)</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr class="GCPF">
+                    <td>功率因数</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr class="GCTHDI">
+                    <td>THDI(%)</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            </table>
+            <table class="basicTable">
+                <tr>
+                    <th colspan="4">负载电流</th>
+                </tr>
+                <tr class="LCRMS">
+                    <td>有效值(A)</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr class="LCPF">
+                    <td>功率因数</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr class="LCTHDI">
+                    <td>THDI(%)</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            </table>
+            <table class="basicTable">
+                <tr>
+                    <th colspan="4">补偿电流</th>
+                </tr>
+                <tr class="CCRMS">
+                    <td>有效值(A)</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr class="DT">
+                    <td>设备温度</td>
+                    <td></td>
+                    <td>0</td>
+                    <td></td>
+                </tr>
+            </table>
+            <table class="basicTable">
+                <tr>
+                    <th colspan="4">电网侧</th>
+                </tr>
+                <tr class="GSAP">
+                    <td>有功功率(kW)</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr class="GSRP">
+                    <td>无功功率(kVar)</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr class="GSVP">
+                    <td>视在功率(kVA)</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            </table>
+            <table class="basicTable">
+                <tr>
+                    <th colspan="4">负载侧</th>
+                </tr>
+                <tr class="LSAP">
+                    <td>有功功率(kW)</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr class="LSRP">
+                    <td>无功功率(kVar)</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr class="LSVP">
+                    <td>视在功率(kVA)</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            </table>
+        </div>
+        <div class="setting part hide">
+            <!-- <form> -->
+                <table class="settingTable">
+                <tr>
+                    <td>开 关 机</td>
+                    <td>
+                        <select class="Switch">
+                            <option value="1">开机</option>
+                            <option value="0">关机</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>启动模式</td>
+                    <td>
+                        <select class="StartMode">
+                            <option value="0">手动</option>
+                            <option value="1">自动</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>工作模式</td>
+                    <td>
+                        <select class="WorkMode">
+                            <option value="0">谐波模式</option>
+                            <option value="1">无功补偿模式</option>
+                            <option value="2">不平衡补偿模式</option>
+                            <option value="12">自老化模式</option>
+                            <option value="13">SVGC补偿</option>
+                            <option value="15">BSVGC补偿</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>CT 位 置</td>
+                    <td>
+                        <select class="CTLoction">
+                            <option value="0">负载侧</option>
+                            <option value="1">电网侧</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>CT反接适配</td>
+                    <td>
+                        <select class="CTAdapter">
+                            <option value="1">使能</option>
+                            <option value="0">禁止使能</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>CT 变 比</td>
+                    <td>
+                        <input class="CTRatio" type="number" placeholder="0" onblur="checkValue('CTRatio', 1, 6000)" ;>&nbsp;: 5
+                    </td>
+                </tr>
+                <tr>
+                    <td>系统容量</td>
+                    <td>
+                        <input class="SC" type="number" placeholder="0" onblur="checkValue('SC', 1, 4000)">&nbsp;A
+                    </td>
+                </tr>
+                <tr>
+                    <td>允许相序</td>
+                    <td>
+                        <select class="APS">
+                            <option value="0">正序</option>
+                            <option value="1">负序</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ECO 使 能</td>
+                    <td>
+                        <select class="ECOE">
+                            <option value="1">使能</option>
+                            <option value="0">禁止使能</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ECO启动电流</td>
+                    <td>
+                        <input class="ECOSC" type="number" placeholder="0">&nbsp;A
+                    </td>
+                </tr>
+                <tr>
+                    <td>ECO关闭电流</td>
+                    <td>
+                        <input class="ECOEC" type="number" placeholder="0">&nbsp;A
+                    </td>
+                </tr>
+                <tr>
+                    <td>ECO启动不平衡度</td>
+                    <td>
+                        <input class="ECOSU" type="number" placeholder="0">&nbsp;%
+                    </td>
+                </tr>
+                <tr>
+                    <td>ECO关闭不平衡度</td>
+                    <td>
+                        <input class="ECOEU" type="text" placeholder="0">&nbsp;%
+                    </td>
+                </tr>
+                <tr>
+                    <td>2次谐波使能</td>
+                    <td>
+                        <select class="2Har">
+                            <option value="1">使能</option>
+                            <option value="0">禁止使能</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4次谐波使能</td>
+                    <td>
+                        <select class="4Har">
+                            <option value="1">使能</option>
+                            <option value="0">禁止使能</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5次谐波使能</td>
+                    <td>
+                        <select class="5Har">
+                            <option value="1">使能</option>
+                            <option value="0">禁止使能</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7次谐波使能</td>
+                    <td>
+                        <select class="7Har">
+                            <option value="1">使能</option>
+                            <option value="0">禁止使能</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>8次谐波使能</td>
+                    <td>
+                        <select class="8Har">
+                            <option value="1">使能</option>
+                            <option value="0">禁止使能</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>10次谐波使能</td>
+                    <td>
+                        <select class="10Har">
+                            <option value="1">使能</option>
+                            <option value="0">禁止使能</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>11次谐波使能</td>
+                    <td>
+                        <select class="11Har">
+                            <option value="1">使能</option>
+                            <option value="0">禁止使能</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>12次谐波使能</td>
+                    <td>
+                        <select class="12Har">
+                            <option value="1">使能</option>
+                            <option value="0">禁止使能</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>13次谐波使能</td>
+                    <td>
+                        <select class="13Har">
+                            <option value="1">使能</option>
+                            <option value="0">禁止使能</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>14次谐波使能</td>
+                    <td>
+                        <select class="14Har">
+                            <option value="1">使能</option>
+                            <option value="0">禁止使能</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>15次谐波使能</td>
+                    <td>
+                        <select class="15Har">
+                            <option value="1">使能</option>
+                            <option value="0">禁止使能</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>16次谐波使能</td>
+                    <td>
+                        <select class="16Har">
+                            <option value="1">使能</option>
+                            <option value="0">禁止使能</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>17次谐波使能</td>
+                    <td>
+                        <select class="17Har">
+                            <option value="1">使能</option>
+                            <option value="0">禁止使能</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>18次谐波使能</td>
+                    <td>
+                        <select class="18Har">
+                            <option value="1">使能</option>
+                            <option value="0">禁止使能</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>19次谐波使能</td>
+                    <td>
+                        <select class="19Har">
+                            <option value="1">使能</option>
+                            <option value="0">禁止使能</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>20次谐波使能</td>
+                    <td>
+                        <select class="20Har">
+                            <option value="1">使能</option>
+                            <option value="0">禁止使能</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>重复控制</td>
+                    <td>
+                        <input class="RC" type="number" placeholder="0" onblur="checkValue('RC', 1, 4000)">
+                    </td>
+                </tr>
+                <tr>
+                    <td>重复控制使能</td>
+                    <td>
+                        <select class="RCE">
+                            <option value="1">使能</option>
+                            <option value="0">禁止使能</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>功率等级</td>
+                    <td>
+                        <input class="PL" type="number" placeholder="0" onblur="checkValue('PL', 1, 4000)">&nbsp;kw
+                    </td>
+                </tr>
+                <tr>
+                    <td>电流等级</td>
+                    <td>
+                        <input class="CL" type="number" placeholder="0" onblur="checkValue('CL', 1, 4000)">&nbsp;A
+                    </td>
+                </tr>
+                <tr>
+                    <td>模块补偿容量</td>
+                    <td>
+                        <input class="MCC" type="number" placeholder="0" onblur="checkValue('MCC', 1, 4000)">&nbsp;A
+                    </td>
+                </tr>
+                <tr>
+                    <td>降额系数</td>
+                    <td>
+                        <input class="DC" type="number" placeholder="0" onblur="checkValue('DC', 0, 1)">
+                    </td>
+                </tr>
+                <tr>
+                    <td>风扇高速档电流</td>
+                    <td>
+                        <input class="FHSC" type="number" placeholder="0" onblur="checkValue('FHSC', 1, 4000)">&nbsp;A
+                    </td>
+                </tr>
+                <tr>
+                    <td>风扇低速档电流</td>
+                    <td>
+                        <input class="FLSC" type="number" placeholder="0" onblur="checkValue('FLSC', 1, 4000)">&nbsp;A
+                    </td>
+                </tr>
+                <tr>
+                        <td>自老化无功功率</td>
+                        <td>
+                            <input class="SARP" type="number" placeholder="0" onblur="checkValue('SARP', -100, 100)">&nbsp;kVar
+                        </td>
+                    </tr>
+                <tr>
+                    <td>
+                        <button class="submit">固化参数</button>
+                    </td>
+                    <td>
+                        <button class="reset">系统复位</button>
+                    </td>
+                </tr>
+            </table>
+        <!-- </form> -->
+        </div>
+        <div class="warning part hide">
+            <div class="warningLabel">
+                <div class="warningText">
+                    <p>硬件故障字1 (0x0)</p>
+                </div>
+                <div class="group HF1"></div>
+            </div>
+            <div class="warningLabel">
+                <div class="warningText">
+                    <p>硬件故障字2 (0x0)</p>
+                </div>
+                <div class="group HF2"></div>
+            </div>
+            <div class="warningLabel">
+                <div class="warningText">
+                    <p>电网故障字 (0x0)</p>
+                </div>
+                <div class="group GF"></div>
+            </div>
+            <div class="warningLabel">
+                <div class="warningText">
+                    <p>母线故障字 (0x0)</p>
+                </div>
+                <div class="group BF"></div>
+            </div>
+            <div class="warningLabel">
+                <div class="warningText">
+                    <p>交流电容故障字 (0x0)</p>
+                </div>
+                <div class="group ACCF"></div>
+            </div>
+            <div class="warningLabel">
+                <div class="warningText">
+                    <p>系统故障字 (0x0)</p>
+                </div>
+                <div class="group SF"></div>
+            </div>
+            <div class="warningLabel">
+                <div class="warningText">
+                    <p>接触器故障字 (0x0)</p>
+                </div>
+                <div class="group CF"></div>
+            </div>
+            <div class="warningLabel">
+                <div class="warningText">
+                    <p>其他故障字 (0x0)</p>
+                </div>
+                <div class="group OF"></div>
+            </div>
+        </div>
+        <div class="about part hide">
+            
+            <table class="aboutTable">
+                <tr class="CDSP">
+                    <td>控制DSP固件：</td>
+                    <td></td>
+                </tr>
+                <tr class="ADSP">
+                    <td>辅助DSP固件：</td>
+                    <td></td>
+                </tr>
+                <tr class="FPGA">
+                    <td>FPGA固 件：</td>
+                    <td></td>
+                </tr>
+                <tr class="WiFiV">
+                    <td>WiFi版 本：</td>
+                    <td></td>
+                </tr>
+            </table> 
+            <div class="WiFiUF">
+                <form action="api/update_file" method="post" enctype="multipart/form-data">
+                    <p>WiFi 更新文件入口</p>
+                    <input class="file" name="ota_file" type="file">
+                    <input class="update" type="submit" value="更新">
+                </form>
+            </div>
+        </div>
+    
+    <div class="wifi-view hide">
+        <table class="viewTable">
+            <!-- <tr>
+                <td>语言</td>
+                <td>
+                    <select>
+                        <option value="0">中文</option>
+                        <option value="1">英文</option>
+                    </select>
+                </td>
+            </tr> -->
+            <tr>
+                <td>Wi-Fi</td>
+                <td>
+                    <input class="WiFiName" type="text" placeholder="请输入Wi-Fi">
+                </td>
+            </tr>
+            <tr>
+                <td>Wi-Fi登录密码</td>
+                <td>
+                    <input class="WiFiPassword" type="text" placeholder="请输入用户登录密码">
+                </td>
+            </tr>
+            <tr>
+                <td>用户名</td>
+                <td>
+                    <input class="User" type="text" placeholder="请输入用户名">
+                </td>
+            </tr>
+            <tr>
+                <td>用户登录密码</td>
+                <td>
+                    <input class="Password" type="text" placeholder="请输入用户登录密码">
+                </td>
+            </tr>
+        </table>
+        <p class="prompt">（用户名和登陆密码只能是数字与字母且密码只能为8位）</p>
+        <table class="buttonGroup">
+            <tr>
+                <td>
+                    <button class="cancel">取消</button>
+                </td>
+                <td>
+                    <button class="comfirm">确定</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="wifi-set-ok hide">
+        <p>设置成功，WiFi模块即将重启。</p>
+        <button class="iKnowOk">OK</button>
+    </div>
+    <div class="wifi-set-error hide">
+        <p>用户名和登陆密码只能是数字与字母且密码只能为8位。</p>
+        <button class="iKnowError">OK</button>
+    </div>
+    <div class="keep-parameter-ok hide">
+        <p>固化参数成功</p>
+        <button class="iKnowKeep">OK</button>
+    </div>
+    <div class="parameter-ok hide">
+        <p>指令下发成功</p>
+        <button class="iKnow">OK</button>
+    </div>
+    <div class="warning-info hide">
+        <p>EPO故障标志</p>
+        <button class="iKnowInfo">OK</button>
+    </div>
+    <div class="mask hide"></div>
+</div></body>
+
+</html>

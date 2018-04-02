@@ -1,0 +1,294 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+@font-face {font-family: "iconfont";
+    src: url('iconfont.eot?t=1521776592502'); /* IE9*/
+    src: url('iconfont.eot?t=1521776592502#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('data:application/x-font-woff;charset=utf-8;base64,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') format('woff'),
+    url('iconfont.ttf?t=1521776592502') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('iconfont.svg?t=1521776592502#iconfont') format('svg'); /* iOS 4.1- */
+  }
+  
+  .iconfont {
+    font-family:"iconfont" !important;
+    font-size:16px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-duankailianjie:before { content: "\e658"; }
+  
+  .icon-shezhi:before { content: "\e64d"; }
+  
+  .icon-lianjie:before { content: "\e63c"; }
+.header{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(56, 127, 245);
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+}
+.icon-shezhi{
+    float: right;
+    color: #fff;
+    margin-right: 15px;
+}
+.link-icon, .no-link-icon{
+    float: left;
+    color: #fff;
+    margin-left: 15px;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}
+.active{
+    color: rgb(56, 127, 245);
+}
+.section ul{
+    display: flex;
+}
+.section ul li{
+    flex: 1;
+    text-align: center;
+    list-style-type:none;
+    line-height: 40px;
+}
+.content{
+    box-sizing: border-box;
+    padding: 10px;
+}
+.basicTable{
+    width: 100%;
+}
+.basicTable th {
+    line-height: 50px;
+}
+.basicTable td {
+    width: 25%;
+    text-align: center;
+    line-height: 30px;
+}
+.aboutTable{
+    margin-top: 20px;
+    width: 100%;
+}
+.aboutTable td{
+    line-height: 40px;
+    text-align: center;
+}
+.warningLabel{
+    display: flex;
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+}
+.warningText{
+    flex: 1;
+    line-height: 30px;
+    font-size: 0.9em;
+}
+.group{
+    flex: 3;
+    width: 100%;
+}
+.num{
+    width: 12%;
+    height: 30px;
+    margin-bottom: 2px;
+    margin-left: 1px;
+    line-height: 30px;
+    color: #fff;
+    text-align: center;
+    float: left;
+    background-color: #f5f5f5;
+    border-radius: 15px;
+}
+.warningCircle{
+    background-color: rgb(255, 21, 21);
+}
+.settingTable{
+    width: 100%;
+}
+.settingTable td{
+    width: 50%;
+    text-align: center;
+    line-height: 40px;
+    padding: 5px 0; 
+}
+.settingTable select{
+    width: 70%;
+    padding: 6px;
+    border-radius: 5px;
+}
+.settingTable input{
+    width: 50%;
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+.wifi-view{
+    position: fixed;
+    box-sizing: border-box;
+    padding: 20px;
+    width: 280px;
+    margin: 0 auto;
+    background-color: #fff;
+    top: 20%;
+    left: 50%;
+    margin-left: -140px;
+    z-index: 10;
+    border-radius: 5px;
+}
+.wifi-view p{
+    line-height: 25px;
+}
+.viewTable{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.viewTable td{
+    line-height: 25px;
+    padding: 10px 0;
+    width: 50%;
+}
+.viewTable select{
+    width: 100%;
+    padding: 6px;
+    border-radius: 5px;
+}
+.viewTable input{
+    width: 90%;
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+.buttonGroup{
+    width: 100%;
+    margin-top: 10px;
+}
+.buttonGroup td{
+    width: 50%;
+    text-align: center;
+    line-height: 35px;
+}
+button{
+    border: none;
+    width: 60%;
+    line-height: 35px;
+    border-radius: 5px;
+}
+.cancel,.reset{
+    background-color: #E50F29;
+    color: #fff;
+}
+.comfirm,.submit{
+    background-color: #3fb34f;
+    color: #fff;
+}
+.mask{
+    position: fixed;
+    background-color: rgba(0,0,0,.5);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+}
+.prompt{
+    font-size: .8em;
+}
+.wifi-set-ok, 
+.wifi-set-error, 
+.keep-parameter-ok, .parameter-ok, .warning-info{
+    position: fixed;
+    box-sizing: border-box;
+    padding: 20px;
+    width: 280px;
+    margin: 0 auto;
+    background-color: #fff;
+    top: 40%;
+    left: 50%;
+    margin-left: -140px;
+    z-index: 10;
+    border-radius: 5px;
+}
+.wifi-set-ok p, .wifi-set-error p{
+    line-height: 40px;
+    margin-bottom: 15px;
+    font-size: 17px;
+}
+.warning-info{
+    text-align: center;
+}
+.warning-info p {
+    line-height: 30px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    
+}
+.keep-parameter-ok p, .parameter-ok p{
+    line-height: 40px;
+    margin-bottom: 15px;
+    font-size: 17px;
+    text-align: center;
+}
+.iKnowOk, .iKnowKeep, .iKnow, .iKnowInfo{
+    width: 100%;
+    height: 40px;
+    background-color: #3fb34f;
+    color: #fff;
+    line-height: 40px;
+}
+.iKnowError, .iKnowKeepError{
+    width: 100%;
+    height: 40px;
+    background-color: #E50F29;
+    color: #fff;
+    line-height: 40px;
+}
+.WiFiUF{
+    text-align: center;
+}
+.WiFiUF input{
+    margin: 10px 0;
+}
+.update{
+    border: none;
+    background-color: rgb(56, 127, 245);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.file {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+    width: 180px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}

@@ -1,0 +1,90 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+body{
+  background-color: rgb(56, 127, 245);
+  position: relative;
+}
+.hide{
+  display: none;
+}
+.show{
+  display: block;
+}
+.login{
+  box-sizing: border-box;
+  margin: 170px 40px;
+  height: 220px;
+  background-color: rgba(255, 255, 255, .9);
+  border-radius: 5px;
+  /* box-shadow: 0px 5px 20px #888; */
+}
+.userCell{
+  box-sizing: border-box;
+  margin: 0 30px;
+  padding-top: 40px;
+}
+.pwdCell{
+  box-sizing: border-box;
+  margin: 0 30px;
+}
+.loginCell{
+  box-sizing: border-box;
+  margin: 0 30px;
+}
+.login p{
+  width: 20%;
+  float: left;
+  line-height: 29px;
+}
+.login input{
+  width: 73%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  line-height: 25px;
+  /* float: left; */
+  padding: 2px;
+}
+#login_in{
+  width: 100%;
+  line-height: 35px;
+  font-size: 16px;
+  background-color: rgb(36, 198, 114);
+  color: #fff;
+  border:none;
+  border-radius: 3px;
+  text-align: center;
+}
+.error{
+  position: absolute;
+  top: 50%;
+  margin-top: -55px;
+  left: 80px;
+  right: 80px;
+  height: 110px;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  z-index: 10;
+}
+.error p{
+  line-height: 60px;
+}
+.error button{
+  width: 60%;
+  line-height: 30px;
+  font-size: 14px;
+  background-color: rgb(214, 50, 49);
+  color: #fff;
+  border:none;
+}
+.mask{
+  position: fixed;
+  background-color: rgba(0,0,0,.5);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+}
