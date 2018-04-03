@@ -75,7 +75,7 @@ $(function () {
         })
     })
 
-    $("input").change(function () {
+    $(".settingInput").change(function () {
         var data = {};
         $(".mask").removeClass('hide').addClass("show");
         $(".parameter-ok").removeClass('hide').addClass("show");
