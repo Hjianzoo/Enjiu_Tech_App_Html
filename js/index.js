@@ -75,14 +75,14 @@ $(function () {
         })
     })
 
-    $(".settingInput").change(function () {
+    $("input").change(function () {
         var data = {};
-        $(".mask").removeClass('hide').addClass("show");
-        $(".parameter-ok").removeClass('hide').addClass("show");
         var key = $(this).attr('class');
         data[key] = $(this).val();
         var dataStr = JSON.stringify(data); // 发送的JSON数据字符串
-        if (key != 'WiFiName' && key != 'WiFiPassword' && key != 'User' && key != 'Password') {
+        if (key != 'WiFiName' && key != 'WiFiPassword' && key != 'User' && key != 'Password' && key != 'update' && key != 'file') {
+            $(".mask").removeClass('hide').addClass("show");
+            $(".parameter-ok").removeClass('hide').addClass("show");
             $.post('/api/setting', { data: dataStr }, function (res) {
                 renderSetting(res);
             })
