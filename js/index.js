@@ -577,17 +577,22 @@ function renderWarning(data) {
             }
         } else {
             var val = Number(data[key]);
+            console.log(data.GF);
             var val2 = val.toString(2);
             var renderArray = [];
-            for (var i = 0; i < val2.length; i++) { //遍历字符串
-                renderArray.push(val2[i]);
+            console.log(val2)
+            for (var i = 0; i < 16; i++) { //遍历字符串
+                if(val2[i]){
+                   renderArray.push(val2[i]); 
+               }else{
+                   renderArray.unshift('0');
+               }
             }
             renderArray.reverse();
             console.log('渲染数组：' + renderArray);
             for (var j = 0; j < renderArray.length; j++) {
                 var h = j + 1;
                 if (renderArray[j] == '1') {
-                    console.log(j)
                     $('.' + key + ' p:nth-child(' + h + ')').addClass('warningCircle')
                 } else {
                     $('.' + key + ' p:nth-child(' + h + ')').removeClass('warningCircle')
