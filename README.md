@@ -1,106 +1,82 @@
-电网电压有效值 : GVRMS: '1','2','3'
-电网电压THDU : GVTHDU: '1','2','3'
-电网电压频率 : GVHZ
-电网电压相序 : GVPS
+api/base
+市电电压有效值     	MVRMS		0.1V
+市电电流有效值		MCRMS		0.1A
+逆变电压有效值		IVRMS		0.1V
+逆变电流有效值		ICRMS		0.1A
+负载电压有效值		LVRMS		0.1V
+负载电流有效值		LCRMS		0.1A
+负载有功功率			LAP			10W
+负载视在功率			LAPP		10VA
+负载功率因素			LPF			无
+负载率 				LR 			无
+市电频率 			MF			无
+输出状态				OS 			（1：逆变供电 3：市电供电）
+工作状态				WS			（0：待机 1-3：启动中 4：运行 5：故障）
+IGBT温度				IGBTT		℃
+正母线电压			PBV			0.1V
+负母线电压			NBV			0.1V
+模块类型				MT 			（范围0-4096）
 
-电网电流有效值 ：GCRMS: '1','2','3'
-电网电流功率因数 ：GCPF: '1','2','3'
-电网电流THDI ：GCTHDI: '1','2','3'
+api/warning
+故障字1				HAL1	
+故障字2				HAL2
+故障字3				HAL3
+告警字1				WAR1
+DSP故障记录条目数		DSPFRE		无
+最新DSP故障记录索引	LDSPFRI		（0-254）
+最旧DSP故障记录索引	ODSPFRI		（0-254）
+DSP故障记录Tail		DSPFRT 		（0-254）
+DSP故障记录Head		DSPFRH 		（0-254）
+DSP故障记录ID0		DSPFR0 	 	（0-254）
+DSP故障记录ID1		DSPFR1 		（0-254）
+DSP故障记录ID2		DSPFR2 		（0-254）
+DSP故障记录ID3		DSPFR3 		（0-254）
+DSP故障记录ID4		DSPFR4 		（0-254）
+DSP故障记录ID5		DSPFR5 		（0-254）
+DSP故障记录ID6		DSPFR6 		（0-254）
+DSP故障记录ID7		DSPFR7 		（0-254）
+DSP故障记录ID8		DSPFR8 		（0-254）
+DSP故障记录ID9		DSPFR9 		（0-254）
+DSP故障记录ID10		DSPFR10 	（0-254）
+DSP故障记录ID11		DSPFR11		（0-254）
+DSP故障记录ID12		DSPFR12		（0-254）
+DSP故障记录ID13		DSPFR13		（0-254）
+DSP故障记录ID14		DSPFR14		（0-254）
+DSP故障记录ID15		DSPFR15		（0-254）
+DSP故障记录ID16		DSPFR16		（0-254）
+DSP故障记录ID17		DSPFR17		（0-254）
+DSP故障记录ID18		DSPFR18		（0-254）
+DSP故障记录ID19		DSPFR19		（0-254）
+DSP故障记录ID20		DSPFR20		（0-254）
 
-负载电流有效值 ：LCRMS: '1','2','3'
-负载电流功率因数 ：LCPF: '1','2','3'
-负载电流THDI ：LCTHDI: '1','2','3'
+api/setting
+#开关机控制1			PSW1		无
+#开关机控制2			PSW2		无
+开关机控制 			SW 			(1:开机 0：关机)
+额定输出电压			ROV			0.1V
+启动模式				SMODE		（1：开 0：关）
+系统过温点			SOT 		℃
+市电电压高异常点		MVHAP		0.1V
+市电电压高异常恢复点	MVHARP 		0.1V
+市电电压低异常点		MVLAP 		0.1V
+市电电压低异常恢复点	MVLARP 		0.1V
+市电高低压异常确认时间 MHLVACT	10ms
+整流过流点			ROP 		0.1A
+整流过流保护时间		ROPT	  	10ms
+市电高压切断点		MHVCP		0.1V
+市电高压切断恢复点  	MHVCRP 		0.1V
+市电低压切断点		MLVCP 		0.1V
+市电低压切断恢复点	MLVCRP 		0.1V
+市电高低压故障切断确认时间  MHLVFCCT 		10ms
+工作模式				WMODE		（范围0-5）
+24小时市电切逆变允许次数	DAYMICAT	（范围0-100）
+24小时逆变切市电允许次数	DAYIMCAT 	（范围0-100）
+旁路供电保持时间		BPSHT 		1min
+逆变供电保持时间		IPSHT 		1min
+MODBUS地址			MODADDR 	1-254
 
-补偿电流有效值 ：CCRMS: '1','2','3'
-设备温度 : DT
 
-电网侧有功功率 : GSAP: '1','2','3'
-电网侧无功功率 : GSRP: '1','2','3'
-电网侧视在功率 : GSVP: '1','2','3'
 
-负载侧有功功率 : LSAP: '1','2','3'
-负载侧无功功率 : LSRP: '1','2','3'
-负载侧视在功率 : LSVP: '1','2','3'
 
-开关机 : Switch  开: 1, 关: 0
-启动模式 : StartMode  手动: 0, 自动: 1
-工作模式 : WorkMode  谐波模式: 1, SVG模式: 2, BSVG模式: 4 
-CT位置 : CTLoction  负载测: 0, 电网测: 1
-CT反接适配 : CTAdapter  使能: 1, 禁止使能: 0
-CT变比 : CTRatio 
-系统容量 : SC
-允许相序 : APS  正序: 0, 负序: 1
-ECO使能 : ECOE  使能: 1, 禁止使能: 0
-ECO启动电流 : ECOSC
-ECO关闭电流 : ECOEC
-ECO启动不平衡度 : ECOSU
-ECO关闭不平衡度 : ECOEU
-2次谐波使能 : 2Har  使能: 1, 禁止使能: 0
-4次谐波使能 : 4Har  使能: 1, 禁止使能: 0
-5次谐波使能 : 5Har  使能: 1, 禁止使能: 0
-7次谐波使能 : 7Har  使能: 1, 禁止使能: 0
-8次谐波使能 : 8Har  使能: 1, 禁止使能: 0
-10次谐波使能 : 10Har  使能: 1, 禁止使能: 0
-11次谐波使能 : 11Har  使能: 1, 禁止使能: 0
-12次谐波使能 : 12Har  使能: 1, 禁止使能: 0
-13次谐波使能 : 13Har  使能: 1, 禁止使能: 0
-14次谐波使能 : 14Har  使能: 1, 禁止使能: 0
-15次谐波使能 : 15Har  使能: 1, 禁止使能: 0
-16次谐波使能 : 16Har  使能: 1, 禁止使能: 0
-17次谐波使能 : 17Har  使能: 1, 禁止使能: 0
-18次谐波使能 : 18Har  使能: 1, 禁止使能: 0
-19次谐波使能 : 19Har  使能: 1, 禁止使能: 0
-20次谐波使能 : 20Har  使能: 1, 禁止使能: 0
-重复控制 : RC
-重复控制使能 : RCE  使能: 1, 禁止使能: 0
-功率等级 : PL
-电流等级 : CL
-模块补偿容量 : MCC
-额降系数 : DC
-风扇高速档电流 : FHSC
-风扇低速档电流 : FLSC
 
-（以下字段都为16位二进制数，例0111010101110101）
-硬件故障字1 : HF1
-硬件故障字2 : HF2
-电网故障字 : GF 
-母线故障字 : BF
-交流电容故障字 : ACCF
-系统故障字 : SF
-接触器故障字 : CF
-其他故障字 : OF
 
-控制DSP固件 : CDSP
-辅助DSP固件 : ADSP
-FPGA固件 : FPGA
-WiFi版本 : WiFiV
-WiFi 跟新文件入口 : WiFiUF
-
-系统复位 : systemReset
-
-<!-- 暂时屏蔽 语言 : Language  1:中文, 2:英文 --> 
-WiFi : WiFiName
-WiFi密码 : WiFiPassword
-用户名 : User
-用户登陆密码 ：Password
-
-登陆成功: login ok:成功, error:失败
-设置成功: setting ok:成功, error:失败
-
-设备状态 : WorkStatus 0:无设备 1:运行中, 2:故障, 3:待机中
-
-get路径：
-基本：api/base
-设置：api/setting
-告警：api/warning
-关于：api/about
-
-post路径：
-设备参数设置：api/setting
-系统复位： api/reset
-wifi设置：api/wifi_config
-登陆界面：api/login_in
-固化参数：api/setting/keep_parameter
-
-数据格式
-{"Switch":"1","StartMode":"1","WorkMode":"1","CTLoction":"1","CTAdapter":"1","AllowPhaseSequence":"1","ECOEnabled":"1","2HarmonicEnable":"1","4HarmonicEnable":"1","5HarmonicEnable":"1","7HarmonicEnable":"1","8HarmonicEnable":"1","10HarmonicEnable":"1","11HarmonicEnable":"1","12HarmonicEnable":"1","13HarmonicEnable":"1","14HarmonicEnable":"1","15HarmonicEnable":"1","16HarmonicEnable":"1","17HarmonicEnable":"1","18HarmonicEnable":"1","19HarmonicEnable":"1","20HarmonicEnable":"1","RepeatControlEnable":"1","CTRatio":"11","SystemCapacity":"12","ECOStartCurrent":"13","ECOEndCurrent":"14","ECOStartUnbalanced":"15","ECOEndUnbalanced":"16","RepeatControl":"17","PowerLevel":"18","CurrentLevel":"19","ModuleCompensationCapacity":"20","DropCoefficient":"21","FanHighSpeedCurrent":"22"}

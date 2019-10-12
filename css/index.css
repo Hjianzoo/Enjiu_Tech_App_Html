@@ -9,7 +9,9 @@
     url('iconfont.ttf?t=1521776592502') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
     url('iconfont.svg?t=1521776592502#iconfont') format('svg'); /* iOS 4.1- */
   }
+
   
+
   .iconfont {
     font-family:"iconfont" !important;
     font-size:16px;
@@ -30,6 +32,10 @@
     text-align: center;
     line-height: 50px;
     color: #fff;
+    position: fixed;
+    top: 0px;
+    height:auto;
+    z-index: 9999;
 }
 .icon-shezhi{
     float: right;
@@ -50,6 +56,13 @@
 .active{
     color: rgb(56, 127, 245);
 }
+.section {
+    top: 50px;
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+    background-color: white;
+}
 .section ul{
     display: flex;
 }
@@ -62,6 +75,9 @@
 .content{
     box-sizing: border-box;
     padding: 10px;
+    position: relative;
+    top: 100px;
+    width: 100%;
 }
 .basicTable{
     width: 100%;
@@ -291,4 +307,9 @@ button{
     border-color: #78C3F3;
     color: #004974;
     text-decoration: none;
+}
+.warningInfo {
+    font-size: medium;
+    text-align: left;
+    color: gray
 }

@@ -91,44 +91,48 @@ $(function () {
 
     // 点击固话参数
     $(".submit").on('click', function () {
-        /*var data = {}; // 发送的JSON数据对象
-        var dataArr = [];
-        var classArr = [];
-        var valArr = [];
-        var data1 = ""; // 分段数据，防止数据长度过长服务器无法接受处理
-        var data2 = ""; // 分段数据，防止数据长度过长服务器无法接受处理
-        var data3 = ""; // 分段数据，防止数据长度过长服务器无法接受处理
-        // 遍历当前页面类名
-        $("select").each(function (index, item) {
-            classArr.push($(item).attr('class'))
-        })
-        $("input").each(function (index, item) {
-            classArr.push($(item).attr('class'))
-        })
-        classArr.splice(37, 4); // 去除wifi弹窗的4个输入值
-        // 遍历当前页面值
-        $("select").each(function (index, item) {
-            valArr.push($(item).val())
-        })
-        $("input").each(function (index, item) {
-            valArr.push($(item).val())
-        })
-        valArr.splice(37, 4); // 去除wifi弹窗的4个输入值
-        // 为data添加属性
-        for (var i = 0; i < classArr.length; i++) {
-            var dataAttr = classArr[i];
-            var dataValue = valArr[i]
-            data[dataAttr] = dataValue;
-        }
+        // var data = {}; // 发送的JSON数据对象
+        // var dataArr = [];
+        // var classArr = [];
+        // var valArr = [];
+        // var data1 = ""; // 分段数据，防止数据长度过长服务器无法接受处理
+        // var data2 = ""; // 分段数据，防止数据长度过长服务器无法接受处理
+        // var data3 = ""; // 分段数据，防止数据长度过长服务器无法接受处理
+        // // 遍历当前页面类名
+        // $("select").each(function (index, item) {
+        //     classArr.push($(item).attr('class'))
+        // })
+        // $("input").each(function (index, item) {
+        //     classArr.push($(item).attr('class'))
+        // })
+        // classArr.splice(37, 4); // 去除wifi弹窗的4个输入值
+        // // 遍历当前页面值
+        // $("select").each(function (index, item) {
+        //     valArr.push($(item).val())
+        // })
+        // $("input").each(function (index, item) {
+        //     valArr.push($(item).val())
+        // })
+        // valArr.splice(37, 4); // 去除wifi弹窗的4个输入值
+        // // 为data添加属性
+        // for (var i = 0; i < classArr.length; i++) {
+        //     var dataAttr = classArr[i];
+        //     var dataValue = valArr[i]
+        //     data[dataAttr] = dataValue;
+        // }
 
-        var dataStr = JSON.stringify(data); // 发送的JSON数据字符串
+        // var dataStr = JSON.stringify(data); // 发送的JSON数据字符串
 
-        // 分段数据，防止数据长度过长服务器无法接受处理
-        dataArr = dataStr.split(",");
+        // // 分段数据，防止数据长度过长服务器无法接受处理
+        // dataArr = dataStr.split(",");
 
-        data1 = dataArr.slice(0, 14).join() + "}";
-        data2 = "{" + dataArr.slice(14, 26).join() + "}";
-        data3 = "{" + dataArr.slice(26, 38).join();*/
+        // data1 = dataArr.slice(0, 14).join() + "}";
+        // data2 = "{" + dataArr.slice(14, 26).join() + "}";
+        // data3 = "{" + dataArr.slice(26, 38).join();
+
+        // console.log(data1);
+        // console.log(data2);
+        // console.log(data3);
 
         $.post('/api/setting/keep_parameter', { keep_parameter: true }, function (res) {
             // if (res == true) {
@@ -214,104 +218,48 @@ $(function () {
     $(".group p").on('click', function () {
         var parentName = $(this).parent().attr('class');
 
-        if (parentName.indexOf('HF1') >= 0) { //硬件故障字1
+        if (parentName.indexOf('HAL1') >= 0) { //电网故障字
             var index = $(this).attr('index-data');
             var warningText;
             switch (index) {
                 case '0':
-                    warningText = 'EPO故障';
+                    warningText = '紧急关机';
                     break;
                 case '1':
-                    warningText = 'IGBT硬件过流';
+                    warningText = '整流硬件过流';
                     break;
                 case '2':
-                    warningText = '母线硬件过压';
+                    warningText = '逆变硬件过流';
+                    break;
+                case '3':
+                    warningText = '母线过压';
                     break;
                 case '4':
-                    warningText = '功率模块硬件过流';
+                    warningText = '单板连接故障';
                     break;
-                default:
-                    warningText = '无告警信息';
-                    break;
-            }
-            $('.warning-info p').text(warningText)
-
-        } else if (parentName.indexOf('HF2') >= 0) { //硬件故障字2
-            var index = $(this).attr('index-data');
-            var warningText;
-            switch (index) {
-                case '0':
+                case '5':
                     warningText = '辅助电源故障';
                     break;
-                case '1':
+                case '6':
                     warningText = '风扇故障';
                     break;
-                case '2':
-                    warningText = '连接故障';
-                    break;
-                case '4':
-                    warningText = '交流测熔丝损坏';
-                    break;
-                case '8':
-                    warningText = '功率模块过温';
-                    break;
-                default:
-                    warningText = '无告警信息';
-                    break;
-            }
-            $('.warning-info p').text(warningText)
-
-        } else if (parentName.indexOf('GF') >= 0) { //电网故障字
-            var index = $(this).attr('index-data');
-            var warningText;
-            switch (index) {
-                case '0':
-                    warningText = '交流A相电压过压';
-                    break;
-                case '1':
-                    warningText = '交流B相电压过压';
-                    break;
-                case '2':
-                    warningText = '交流C相电压过压';
-                    break;
-                case '3':
-                    warningText = '交流A相电压欠压';
-                    break;
-                case '4':
-                    warningText = '交流B相电压欠压';
-                    break;
-                case '5':
-                    warningText = '交流C相电压欠压';
-                    break;
-                case '6':
-                    warningText = '电网过频';
-                    break;
                 case '7':
-                    warningText = '电网欠频';
+                    warningText = '过温故障';
                     break;
                 case '8':
-                    warningText = '电网相序反';
-                    break;
-                case '9':
-                    warningText = '输出A相过流';
+                    warningText = '整流器过载';
                     break;
                 case '10':
-                    warningText = '输出B相过流';
+                    warningText = '整流器电阻软启异常';
                     break;
                 case '11':
-                    warningText = '输出C相过流';
+                    warningText = '整流器 PWM 软启异常';
                     break;
                 case '12':
-                    warningText = '电网电压不平衡超限';
-                    break;
-                case '13':
-                    warningText = '输出电流不平衡超限';
+                    warningText = '逆变电压低异常';
                     break;
                 case '14':
-                    warningText = '电网缺相';
-                    break;
-                case '15':
-                    warningText = '输出N线电流过流';
+                    warningText = '逆变电压高异常';
                     break;
                 default:
                     warningText = '无告警信息';
@@ -319,30 +267,30 @@ $(function () {
             }
             $('.warning-info p').text(warningText)
 
-        } else if (parentName.indexOf('BF') >= 0) { //母线故障字
+        } else if (parentName.indexOf('HAL2') >= 0) { //母线故障字
             var index = $(this).attr('index-data');
             var warningText;
             switch (index) {
                 case '0':
-                    warningText = '预充电母线过压';
+                    warningText = '逆变过载关机';
                     break;
                 case '1':
-                    warningText = '预充电母线欠压';
+                    warningText = '逆变短路';
                     break;
                 case '2':
-                    warningText = '不控整流母线过压';
+                    warningText = '整流过流';
                     break;
                 case '3':
-                    warningText = '不控整流母线欠压';
+                    warningText = '逆变直流分量高';
                     break;
                 case '4':
-                    warningText = '运行母线过压';
+                    warningText = '市电故障关机';
                     break;
                 case '5':
-                    warningText = '运行母线欠压';
+                    warningText = '母线欠压';
                     break;
                 case '6':
-                    warningText = '正负母线电压差超限';
+                    warningText = '母线过压';
                     break;
                 default:
                     warningText = '无告警信息';
@@ -350,55 +298,21 @@ $(function () {
             }
             $('.warning-info p').text(warningText)
 
-        } else if (parentName.indexOf('ACCF') >= 0) { //交流电容故障字
-            var index = $(this).attr('index-data');
-            var warningText;
-            switch (index) {
-                case '1':
-                    warningText = '预充电A相交流电容过流';
-                    break;
-                case '2':
-                    warningText = '预充电B相交流电容过流';
-                    break;
-                case '3':
-                    warningText = '预充电C相交流电容过流';
-                    break;
-                case '4':
-                    warningText = '运行交流电容电流过流';
-                    break;
-                case '5':
-                    warningText = '运行交流电容电压过压';
-                    break;
-                default:
-                    warningText = '无告警信息';
-                    break;
-            }
-            $('.warning-info p').text(warningText)
-
-        } else if (parentName.indexOf('SF') >= 0) { //系统故障字
+        } else if (parentName.indexOf('HAL3') >= 0) { //交流电容故障字
             var index = $(this).attr('index-data');
             var warningText;
             switch (index) {
                 case '0':
-                    warningText = '系统RAM故障';
+                    warningText = '母线瞬时过压';
                     break;
                 case '1':
-                    warningText = '系统EEPROM故障';
+                    warningText = '母线瞬时欠压';
                     break;
                 case '2':
-                    warningText = '系统零漂过大故障';
+                    warningText = '母线不平衡';
                     break;
                 case '3':
-                    warningText = '系统后台通讯故障';
-                    break;
-                case '4':
-                    warningText = '系统CAN通讯故障';
-                    break;
-                case '5':
-                    warningText = 'CPLD故障';
-                    break;
-                case '6':
-                    warningText = 'DataLog故障';
+                    warningText = '整流器软件过流';
                     break;
                 default:
                     warningText = '无告警信息';
@@ -406,51 +320,28 @@ $(function () {
             }
             $('.warning-info p').text(warningText)
 
-        } else if (parentName.indexOf('CF') >= 0) { //接触器故障字
+        } else if (parentName.indexOf('WAR1') >= 0) { //系统故障字
             var index = $(this).attr('index-data');
             var warningText;
             switch (index) {
-                case '4':
-                    warningText = '并网继电器闭合故障';
+                case '0':
+                    warningText = '市电异常';
                     break;
-                case '5':
-                    warningText = '并网继电器断开故障';
-                    break;
-                case '6':
-                    warningText = '并网继电器闭合状态检测故障';
-                    break;
-                case '7':
-                    warningText = '并网继电器断开状态检测故障';
-                    break;
-                default:
-                    warningText = '无告警信息';
-                    break;
-            }
-            $('.warning-info p').text(warningText)
-
-        } else if (parentName.indexOf('OF') >= 0) { //其他故障字
-            var index = $(this).attr('index-data');
-            var warningText;
-            switch (index) {
                 case '1':
-                    warningText = '辅助DSP故障';
+                    warningText = '逆变过载中';
                     break;
                 case '2':
-                    warningText = 'DSP间同步故障';
+                    warningText = '逆变切旁路次数到';
                     break;
-                case '4':
-                    warningText = '电网电压谐波电压';
-                    break;
-                case '5':
-                    warningText = '系统谐振故障';
+                case '3':
+                    warningText = '旁路切逆变次数到';
                     break;
                 default:
                     warningText = '无告警信息';
                     break;
             }
             $('.warning-info p').text(warningText)
-
-        }
+        } 
         if ($(this).attr('class').indexOf('warningCircle') >= 0) {
             $(".mask").removeClass('hide').addClass("show");
             $(".warning-info").removeClass('hide').addClass("show");
@@ -471,13 +362,13 @@ function renderBase(data) {
                 $('.' + key + ' td:nth-child(' + td + ')').text(data[key][i])
             }
         } else {
-            if (key == 'GVPS') {
+            if (key == 'OS') {
                 switch (data[key]) {
-                    case '0':
-                        $('.' + key + ' td:nth-child(3)').text('正序');
-                        break;
                     case '1':
-                        $('.' + key + ' td:nth-child(3)').text('负序');
+                        $('.' + key + ' td:nth-child(2)').text('逆变供电');
+                        break;
+                    case '3':
+                        $('.' + key + ' td:nth-child(2)').text('市电供电');
                         break;
                     default:
                         break;
@@ -485,30 +376,28 @@ function renderBase(data) {
             } else if (key == 'WorkStatus') {
                 switch (data[key]) {
                     case '0':
-                        $('.header span').text('无设备');
-                        $('.no-link-icon').show();
-                        $('.link-icon').hide();
+                        $('.header span').text('待机');
                         break;
                     case '1':
-                        $('.header span').text('运行中');
-                        $('.no-link-icon').hide();
-                    $('.link-icon').show();
+                        $('.header span').text('启动中');
                         break;
                     case '2':
-                        $('.header span').text('故障');
-                        $('.no-link-icon').hide();
-                    $('.link-icon').show();
+                        $('.header span').text('启动中');
                         break;
                     case '3':
-                        $('.header span').text('待机中');
-                        $('.no-link-icon').hide();
-                    $('.link-icon').show();
+                        $('.header span').text('启动中');
+                        break;
+                    case '4':
+                        $('.header span').text('运行');
+                        break;
+                    case '5':
+                        $('.header span').text('故障');
                         break;
                     default:
                         break;
                 }
             } else {
-                $('.' + key + ' td:nth-child(3)').text(data[key])
+                $('.' + key + ' td:nth-child(2)').text(data[key])
             }
 
         }
@@ -520,24 +409,22 @@ function renderSetting(data) {
         if (key == 'WorkStatus') {
             switch (data[key]) {
                 case '0':
-                    $('.header span').text('无设备');
-                    $('.no-link-icon').show();
-                    $('.link-icon').hide();
+                    $('.header span').text('待机');
                     break;
                 case '1':
-                    $('.header span').text('运行中');
-                    $('.no-link-icon').hide();
-                    $('.link-icon').show();
+                    $('.header span').text('启动中');
                     break;
                 case '2':
-                    $('.header span').text('故障');
-                    $('.no-link-icon').hide();
-                    $('.link-icon').show();
+                    $('.header span').text('启动中');
                     break;
                 case '3':
-                    $('.header span').text('待机中');
-                    $('.no-link-icon').hide();
-                    $('.link-icon').show();
+                    $('.header span').text('启动中');
+                    break;
+                case '4':
+                    $('.header span').text('运行');
+                    break;
+                case '5':
+                    $('.header span').text('故障');
                     break;
                 default:
                     break;
@@ -553,28 +440,29 @@ function renderWarning(data) {
         if (key == 'WorkStatus') {
             switch (data[key]) {
                 case '0':
-                    $('.header span').text('无设备');
-                    $('.no-link-icon').show();
-                    $('.link-icon').hide();
+                    $('.header span').text('待机');
                     break;
                 case '1':
-                    $('.header span').text('运行中');
-                    $('.no-link-icon').hide();
-                    $('.link-icon').show();
+                    $('.header span').text('启动中');
                     break;
                 case '2':
-                    $('.header span').text('故障');
-                    $('.no-link-icon').hide();
-                    $('.link-icon').show();
+                    $('.header span').text('启动中');
                     break;
                 case '3':
-                    $('.header span').text('待机中');
-                    $('.no-link-icon').hide();
-                    $('.link-icon').show();
+                    $('.header span').text('启动中');
+                    break;
+                case '4':
+                    $('.header span').text('运行');
+                    break;
+                case '5':
+                    $('.header span').text('故障');
                     break;
                 default:
                     break;
             }
+        } else if (key === 'DSPFRE' || key === 'LDSPFRI' || key === 'ODSPFRI' ||
+                   key === 'DSPFRT' || key === 'DSPFRH' || key.startsWith('DSPFR')) {
+            $('.' + key + ' td:nth-child(2)').text(data[key])
         } else {
             var val = Number(data[key]);
             console.log(data.GF);
@@ -608,25 +496,22 @@ function renderAbout(data) {
         if (key == 'WorkStatus') {
             switch (data[key]) {
                 case '0':
-                    $('.header span').text('无设备');
-                    $('.no-link-icon').show();
-                    $('.link-icon').hide();
+                    $('.header span').text('待机');
                     break;
                 case '1':
-                    $('.header span').text('运行中');
-                    
-                    $('.no-link-icon').hide();
-                    $('.link-icon').show();
+                    $('.header span').text('启动中');
                     break;
                 case '2':
-                    $('.header span').text('故障');
-                    $('.no-link-icon').hide();
-                    $('.link-icon').show();
+                    $('.header span').text('启动中');
                     break;
                 case '3':
-                    $('.header span').text('待机中');
-                    $('.no-link-icon').hide();
-                    $('.link-icon').show();
+                    $('.header span').text('启动中');
+                    break;
+                case '4':
+                    $('.header span').text('运行');
+                    break;
+                case '5':
+                    $('.header span').text('故障');
                     break;
                 default:
                     break;
