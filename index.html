@@ -31,7 +31,7 @@
         <div class="basic part show">
             <table class="basicTable">
                 <tr>
-                    <th colspan="4">电网电压</th>
+                    <th colspan="4">电网数据</th>
                 </tr>
                 <tr class="MVRMS">
                     <td>市电电压有效值(V)</td>
@@ -67,6 +67,10 @@
                     <td>负载有功功率(W)</td>
                     <td>0</td>
                 </tr>
+				<tr class="LRP">
+                    <td>负载无功功率(Var)</td>
+                    <td>0</td>
+                </tr>
                 <tr class="LAPP">
                     <td>负载视在功率(VA)</td>
                     <td>0</td>
@@ -76,14 +80,14 @@
                     <td>0</td>
                 </tr>
                 <tr class="LR">
-                    <td>负载率</td>
+                    <td>负载率(%)</td>
                     <td></td>
                 </tr>
                 <tr>
                     <th colspan="4">系统数据</th>
                 </tr>
                 <tr class="MF">
-                    <td>市电频率</td>
+                    <td>市电频率(Hz)</td>
                     <td></td>
                 </tr>
                 <tr class="OS">
@@ -166,7 +170,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>市电高低压异常确认时间</td>
+                    <td style="font-size: smaller; width: 50%;">市电高低压异常确认时间</td>
                     <td>
                         <input class="MHLVACT" type="number" placeholder="0">&nbsp;10ms
                     </td>
@@ -208,7 +212,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>市电高低压故障切断确认时间</td>
+                    <td style="font-size: x-small;">市电高低压故障切断确认时间</td>
                     <td>
                         <input class="MHLVFCCT" type="number" placeholder="0">&nbsp;10ms
                     </td>
@@ -220,13 +224,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>24小时市电切逆变允许次数</td>
+                    <td style="font-size: smaller; width: 50%;">24小时市电切逆变允许次数</td>
                     <td>
                         <input class="DAYMICAT" type="number" placeholder="0"  oninput="if(value>100) {value=100} else if(value<0) value=0"  onblur="checkValue('DAYMICAT', 0, 100)">&nbsp;
                     </td>
                 </tr>
                 <tr>
-                    <td>24小时逆变切市电允许次数</td>
+                    <td style="font-size: smaller">24小时逆变切市电允许次数</td>
                     <td>
                         <input class="DAYIMCAT" type="number" placeholder="0" oninput="if(value>100) {value=100} else if(value<0) value=0" onblur="checkValue('DAYIMCAT', 0, 100)">&nbsp;
                     </td>

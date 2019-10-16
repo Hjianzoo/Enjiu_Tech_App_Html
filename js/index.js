@@ -365,10 +365,10 @@ function renderBase(data) {
             if (key == 'OS') {
                 switch (data[key]) {
                     case '1':
-                        $('.' + key + ' td:nth-child(2)').text('逆变供电');
+                        $('.' + key + ' td:nth-child(2)').text('调节');
                         break;
                     case '3':
-                        $('.' + key + ' td:nth-child(2)').text('市电供电');
+                        $('.' + key + ' td:nth-child(2)').text('旁路');
                         break;
                     default:
                         break;
